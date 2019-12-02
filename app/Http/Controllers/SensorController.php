@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Sensor;
 use Illuminate\Http\Request;
 
+use App\Http\Resources\SensorResources;
+
 class SensorController extends Controller
 {
     /**
@@ -46,7 +48,8 @@ class SensorController extends Controller
      */
     public function show(Sensor $sensor)
     {
-        //
+        $sensor = Sensor::where('name', 'CO2')->paginate(5) ;
+        return SensorResources::collection($sensor);
     }
 
     /**
