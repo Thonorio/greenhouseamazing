@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\SensorData;
+
 use Illuminate\Http\Request;
+use App\SensorData; 
 
 class SensorDataController extends Controller
 {
@@ -81,5 +82,12 @@ class SensorDataController extends Controller
     public function destroy(SensorData $sensorData)
     {
         //
+    }
+
+    public function storeData(Request $data)
+    {
+        $aux = new SensorData;
+
+        $aux->store($data);
     }
 }
