@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\SensorData;
 use App\Models\Auth\Traits\Scope\UserScope;
 use App\Models\Auth\Traits\Method\UserMethod;
 use App\Models\Auth\Traits\Attribute\UserAttribute;
@@ -16,4 +17,8 @@ class User extends BaseUser
         UserMethod,
         UserRelationship,
         UserScope;
+
+    public function sensorsData(){
+        return $this->hasMany('App\Models\SensorData');
+    }
 }

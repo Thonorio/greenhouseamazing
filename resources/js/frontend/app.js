@@ -9,6 +9,11 @@ import '../bootstrap';
 import '../plugins';
 import Vue from 'vue';
 
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify)
+const vuetifyOptions = { }
+
 window.Vue = Vue;
 
 /**
@@ -23,6 +28,13 @@ window.Vue = Vue;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('sensor-info', require('./components/SensorInfo.vue').default);
+
+Vue.component('frontpage-carousel', require('./components/FrontpageCarousel.vue').default);
+Vue.component('frontpage-info', require('./components/FrontpageInfo.vue').default);
+Vue.component('frontpage-loader', require('./components/FrontpageLoader.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,4 +44,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    vuetify: new Vuetify(vuetifyOptions)
 });

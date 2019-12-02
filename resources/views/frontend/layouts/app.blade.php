@@ -11,6 +11,8 @@
         <title>@yield('title', app_name())</title>
         <meta name="description" content="@yield('meta_description', 'Laravel Boilerplate')">
         <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
         @yield('meta')
 
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
@@ -21,7 +23,7 @@
         {{ style(mix('css/frontend.css')) }}
 
         @stack('after-styles')
-    </head>
+    </head> 
     <body>
         @include('includes.partials.read-only')
 
@@ -29,10 +31,8 @@
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
 
-            <div class="container">
-                @include('includes.partials.messages')
-                @yield('content')
-            </div><!-- container -->
+            @include('includes.partials.messages')
+            @yield('content')
         </div><!-- #app -->
 
         <!-- Scripts -->
@@ -45,3 +45,4 @@
         @include('includes.partials.ga')
     </body>
 </html>
+

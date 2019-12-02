@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const webpack = require('./webpack.config');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -24,6 +24,7 @@ mix.setPublicPath('public')
         'resources/js/backend/app.js',
         'resources/js/backend/after.js'
     ], 'js/backend.js')
+    .webpackConfig(Object.assign(webpack))
     .extract([
         // Extract packages from node_modules to vendor.js
         'jquery',

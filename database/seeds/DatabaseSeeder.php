@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use SensorTableSeeder as SensorTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +23,10 @@ class DatabaseSeeder extends Seeder
             'sessions',
         ]);
 
-        $this->call(AuthTableSeeder::class);
+        $this->call([
+            AuthTableSeeder::class,
+            SensorsDataSeeder::class,
+        ]);
 
         Model::reguard();
     }
