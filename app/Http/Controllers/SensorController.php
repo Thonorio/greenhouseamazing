@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sensor;
+use App\SensorData;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\SensorResources;
@@ -24,9 +25,14 @@ class SensorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $sensor = new Sensor();
+        $sensor->name = $request->input('name');
+        $sensor->updated_at = \Carbon\Carbon::now();
+        $sensor->save();
+        
+        return new SensorResources($sensor);
     }
 
     /**
@@ -48,7 +54,7 @@ class SensorController extends Controller
      */
     public function show(Sensor $sensor)
     {
-        $sensor = Sensor::where('name', 'CO2')->paginate(5) ;
+        $sensor = Sensor::All() ;
         return SensorResources::collection($sensor);
     }
 

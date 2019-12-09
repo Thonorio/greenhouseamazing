@@ -21,7 +21,6 @@ class SensorsDataSeeder extends Seeder
             array('name' => 'o2', 'created_at' => \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()),
         );
 
-        DB::table('sensors')->insert($data
-        );
+        DB::table('sensors')->insert($data);
     }
 }

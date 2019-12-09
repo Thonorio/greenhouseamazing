@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sensor extends Model
 { 
-    public function sensorsData(){
+    protected $fillable = [
+        'name', 'updated_at'
+    ]; 
+
+   public function sensorsData(){
         return $this->hasMany('App\SensorData');
     }
 }

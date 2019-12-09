@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
 use App\SensorData; 
+use Illuminate\Http\Request;
+
+use App\Http\Resources\SensorDataResources;
 
 class SensorDataController extends Controller
 {
@@ -36,7 +37,8 @@ class SensorDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sensor = Sensor::paginate(5) ;
+        return SensorResources::collection($sensor);
     }
 
     /**
@@ -47,7 +49,8 @@ class SensorDataController extends Controller
      */
     public function show(SensorData $sensorData)
     {
-        //
+        $sensorData = SensorData::All() ;
+        return SensorDataResources::collection($sensorData);
     }
 
     /**
