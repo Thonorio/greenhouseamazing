@@ -19,8 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 //rotas sensores
-Route::get('/sensor', 'SensorController@show');
-Route::post('/sensor', 'SensorController@create');
+Route::get('/sensor', 'SensorController@show')->middleware('auth:api');
+Route::post('/sensor', 'SensorController@create')->middleware('auth:api');;
 
 
 

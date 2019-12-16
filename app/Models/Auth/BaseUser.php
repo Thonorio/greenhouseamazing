@@ -2,6 +2,9 @@
 
 namespace App\Models\Auth;
 
+
+use Laravel\Passport\HasApiTokens;
+
 use App\Models\Traits\Uuid;
 use Altek\Eventually\Eventually;
 use Spatie\Permission\Traits\HasRoles;
@@ -25,7 +28,8 @@ abstract class BaseUser extends Authenticatable implements Recordable
         RecordableTrait,
         SendUserPasswordReset,
         SoftDeletes,
-        Uuid;
+        Uuid,
+        HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
